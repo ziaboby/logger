@@ -50,9 +50,10 @@ class Logger {
   }
 
   private _console(type: string, key: string | undefined, args: any): void {
+    if (!this.isLogTypeEnabled(type.toUpperCase())) return;
     key && args.unshift("[" + key + "]");
     // @ts-ignore
-    window.console[type](...args);
+    console[type](...args);
   }
 
   log(message: Array<any>, key?: string): void {

@@ -58,9 +58,10 @@ var Logger = (function () {
         this._activeLogTypes = [];
     };
     Logger.prototype._console = function (type, key, args) {
-        var _a;
+        if (!this.isLogTypeEnabled(type.toUpperCase()))
+            return;
         key && args.unshift("[" + key + "]");
-        (_a = window.console)[type].apply(_a, args);
+        console[type].apply(console, args);
     };
     Logger.prototype.log = function (message, key) {
         this._console("log", key, message);
