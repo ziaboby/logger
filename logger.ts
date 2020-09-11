@@ -34,7 +34,7 @@ class Logger {
   }
 
   set enableLogType(logType: string) {
-    if (this.isLogTypeEnabled(logType)) {
+    if (!this.isLogTypeEnabled(logType)) {
       this._activeLogTypes.push(logType);
     }
   }

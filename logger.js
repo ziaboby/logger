@@ -38,7 +38,7 @@ var Logger = (function () {
     });
     Object.defineProperty(Logger.prototype, "enableLogType", {
         set: function (logType) {
-            if (this.isLogTypeEnabled(logType)) {
+            if (!this.isLogTypeEnabled(logType)) {
                 this._activeLogTypes.push(logType);
             }
         },
